@@ -1,0 +1,9 @@
+{
+  "scope": ["127.0.0.1"],
+  "delay": 0,
+  "roles": { "owner": "A", "attacker": "B" },
+  "sessions": {
+    "A": { "headers": { "Cookie": "token=alice" } },
+    "B": { "headers": { "Cookie": "token=bob" } }
+  }
+}

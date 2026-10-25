@@ -1,0 +1,37 @@
+# NEVER commit live engagement data. These hold session tokens, target
+# hostnames, captured requests and results. Leaking them is how people burn
+# a bounty or dox a client.
+
+# Real configs (keep only *.example.json)
+igor.config.json
+*.config.json
+!*.example.json
+!tests/test.config.json
+
+# Captured traffic and tool output
+*.csv
+*.har
+burp_export*
+pwnfox_export*
+katana_*.txt
+requests/
+captures/
+loot/
+out/
+reports/
+poc/
+
+# Keep the test fixtures that ship with the repo
+!tests/requests/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/

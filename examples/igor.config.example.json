@@ -1,0 +1,29 @@
+{
+  "_comment": "Copy to igor.config.json (gitignored) and fill in real values.",
+
+  "scope": ["example.com", "api.example.com"],
+  "_scope_note": "Hostnames IGOR is allowed to hit. Empty = nothing sent. A request to any host not listed here is skipped, never fired. This is your out-of-scope seatbelt.",
+
+  "delay": 0.3,
+  "_delay_note": "Seconds between requests. Don't set 0 against a live target.",
+
+  "roles": { "owner": "A", "attacker": "B" },
+  "_roles_note": "Which session owns the objects (victim) and which tries to reach them (attacker). With PwnFox, map your container colors here, e.g. owner=red, attacker=blue.",
+
+  "auth_headers": ["cookie", "authorization", "x-api-key", "x-auth-token"],
+  "_auth_note": "Headers stripped from the captured request before each session's own auth is applied. Add any custom identity header your target uses.",
+
+  "sessions": {
+    "A": {
+      "headers": {
+        "Cookie": "session=PASTE_ACCOUNT_A_COOKIE",
+        "Authorization": "Bearer PASTE_A_TOKEN_IF_USED"
+      }
+    },
+    "B": {
+      "headers": {
+        "Cookie": "session=PASTE_ACCOUNT_B_COOKIE"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "baskets",
+    "create": { "method": "POST", "url": "http://127.0.0.1:8099/api/baskets", "body": { "qty": 1 } },
+    "id_from": "body:id",
+    "read":   { "method": "GET", "url": "http://127.0.0.1:8099/api/baskets/{id}" },
+    "update": {
+      "method": "PUT", "url": "http://127.0.0.1:8099/api/baskets/{id}",
+      "body": { "qty": 1 },
+      "marker_field": "qty", "control_value": 111, "attack_value": 999
+    },
+    "delete": { "method": "DELETE", "url": "http://127.0.0.1:8099/api/baskets/{id}" }
+  },
+  {
+    "name": "notes",
+    "create": { "method": "POST", "url": "http://127.0.0.1:8099/api/notes", "body": { "text": "seed" } },
+    "id_from": "body:id",
+    "read":   { "method": "GET", "url": "http://127.0.0.1:8099/api/notes/{id}" },
+    "update": {
+      "method": "PUT", "url": "http://127.0.0.1:8099/api/notes/{id}",
+      "body": { "text": "seed" },
+      "marker_field": "text", "control_value": "IGOR_CTL", "attack_value": "IGOR_PWNED"
+    }
+  }
+]

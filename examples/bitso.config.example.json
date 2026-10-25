@@ -1,0 +1,26 @@
+{
+  "_comment": "Bitso (Bugcrowd) example. Copy to igor.config.json, fill tokens. Read every note.",
+
+  "scope": ["bitso.com", "nvio.mx", "nvio.ar", "onchain.cc"],
+  "_scope_note": "ONLY the in-scope hosts from the brief. Do not add subdomains; api-sandbox, stage, dev etc. are explicitly OUT of scope. Mobile apps can't be tested by IGOR.",
+
+  "delay": 1.5,
+  "_delay_note": "Be gentle on a financial target. The brief discourages DDoS/brute-force. 1-2s between requests. Do NOT set this low.",
+
+  "global_headers": {
+    "X-Bug-Bounty": "Bugcrowd-YOUR_USERNAME"
+  },
+  "_global_note": "MANDATORY. The brief says traffic without this header can get you IP-banned and treated as a real attack. It rides on every request IGOR sends, including the unauthenticated baseline. Replace YOUR_USERNAME with your Bugcrowd handle.",
+
+  "roles": { "owner": "A", "attacker": "B" },
+
+  "auth_headers": ["authorization", "cookie"],
+
+  "sessions": {
+    "A": { "headers": { "Authorization": "Bearer PASTE_ACCOUNT_A_TOKEN" } },
+    "B": { "headers": { "Authorization": "Bearer PASTE_ACCOUNT_B_TOKEN" } }
+  },
+  "_sessions_note": "Register both accounts with your @bugcrowdninja.com email (auto-approved per the brief). Real auth may use cookies or custom headers instead of a Bearer token; capture a real request in Burp to see what this target actually uses, and mirror it here.",
+
+  "_safety": "Read-side only to start (igor run). Do NOT point writetest at financial flows (balances/trades/transfers). Avoid enum on this target; sequential-ID walking looks like brute-forcing."
+}
